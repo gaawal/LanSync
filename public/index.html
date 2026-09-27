@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanSync · 局域网互传与协同编辑</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">⇄</span>
+    <div>
+      <div class="title">LanSync</div>
+      <div class="subtitle">局域网互传 · 协同编辑</div>
+    </div>
+  </div>
+  <div class="host-info" id="hostInfo"></div>
+  <div class="me">
+    <span class="dot" id="connDot"></span>
+    <input id="nameInput" maxlength="24" placeholder="你的昵称" title="修改后自动保存">
+  </div>
+</header>
+
+<main class="layout">
+  <section class="panel files-panel">
+    <div class="panel-head">
+      <h2>文件鱼池</h2>
+      <div class="head-actions">
+        <button class="btn" id="viewToggle">列表视图</button>
+        <button class="btn primary" id="pickBtn">＋ 选择文件发送</button>
+        <input type="file" id="fileInput" multiple hidden>
+      </div>
+    </div>
+    <div class="pond-wrap" id="pondWrap">
+      <canvas id="pond"></canvas>
+      <div class="pond-hint">把文件拖进鱼池 · 点击小鱼打开预览 / 协同办公</div>
+    </div>
+    <div class="list-wrap hidden" id="listWrap">
+      <div class="dropzone" id="dropzone">把文件拖到这里即可发送给局域网内的所有人</div>
+      <div class="file-table" id="fileTable"></div>
+    </div>
+  </section>
+
+  <section class="panel side-panel">
+    <div class="panel-head"><h2>在线成员</h2></div>
+    <ul class="user-list" id="userList"></ul>
+
+    <div class="panel-head" style="margin-top:20px">
+      <h2>协同文档</h2>
+      <button class="btn" id="newDocBtn">＋ 新建</button>
+    </div>
+    <ul class="doc-list" id="docList"></ul>
+
+    <div class="panel-head" style="margin-top:20px"><h2>邀请其他设备</h2></div>
+    <div class="invite" id="invite"></div>
+  </section>
+</main>
+
+<!-- 协同编辑器 / 预览 -->
+<div class="editor-overlay hidden" id="editorOverlay">
+  <div class="editor-window">
+    <div class="editor-head">
+      <button class="btn ghost" id="closeEditor">← 返回</button>
+      <div class="editor-title" id="editorTitle">文档</div>
+      <div class="save-state" id="saveState">已同步</div>
+      <div class="editor-users" id="editorUsers"></div>
+    </div>
+    <!-- 纯文本协同 -->
+    <div class="editor-body" id="plainBody">
+      <pre class="mirror" id="mirror" aria-hidden="true"></pre>
+      <textarea id="editorArea" spellcheck="false" placeholder="开始输入，所有人实时可见…"></textarea>
+    </div>
+    <!-- 富文本协同（Word） -->
+    <div class="editor-body hidden" id="richBody">
+      <div class="rich-scroll">
+        <div class="rich-editor" id="richEditor" contenteditable="true" spellcheck="false"></div>
+      </div>
+    </div>
+    <!-- Office 预览 -->
+    <div class="editor-body hidden" id="previewBody">
+      <div class="sheet-tabs hidden" id="sheetTabs"></div>
+      <div class="preview-scroll" id="previewContainer">
+        <div class="preview-loading">加载中…</div>
+      </div>
+    </div>
+    <div class="editor-foot" id="editorFoot">就绪</div>
+  </div>
+</div>
+
+<!-- 发送进度（悬浮面板，鱼池/列表视图都可见） -->
+<div class="upload-list hidden" id="uploadList"></div>
+
+<div class="toast" id="toast"></div>
+<script src="vendor/docx-preview.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="vendor/mammoth.browser.min.js"></script>
+<script src="vendor/pptx-preview.js"></script>
+<script src="vendor/html-docx.js"></script>
+<script src="fishpond.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

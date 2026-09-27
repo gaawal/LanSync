@@ -1,0 +1,18 @@
+# 统一换行符，避免跨平台踩坑
+* text=auto
+
+*.js text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+
+# macOS 启动脚本必须是 LF，否则 chmod +x 后运行会报 "\r: command not found"
+*.command text eol=lf
+# Windows 批处理用 CRLF
+*.bat text eol=crlf
+
+*.png binary
+*.jpg binary
+*.exe binary

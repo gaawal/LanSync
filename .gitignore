@@ -1,0 +1,18 @@
+# 依赖与构建产物
+node_modules/
+dist/
+dist-build.log
+.pkgcache/
+
+# 运行时数据（含使用者自己上传的文件，绝对不要提交）
+shared/
+.demo/
+
+# 测试临时文件
+test-doc.docx
+wb-test.md
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini
