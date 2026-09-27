@@ -8,6 +8,9 @@
 ![Platform](https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20%E6%89%8B%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8-4f6ef7)
 ![Offline](https://img.shields.io/badge/%E6%97%A0%E9%9C%80%E8%81%94%E7%BD%91-100%25%20%E5%B1%80%E5%9F%9F%E7%BD%91-10b981)
 ![Single](https://img.shields.io/badge/%E6%89%93%E5%8C%85-%E5%8D%95%E6%96%87%E4%BB%B6%20exe%20%C2%B7%20%E5%85%8D%E8%A3%85%20Node-8b5cf6)
+![Release](https://img.shields.io/github/v/release/gaawal/LanSync?label=%E4%B8%8B%E8%BD%BD&color=2ea44f)
+
+> **Windows 想直接用？** → [下载 LanSync.exe](https://github.com/gaawal/LanSync/releases/latest/download/LanSync.exe)（单文件，双击就跑）
 
 ---
 
@@ -78,11 +81,15 @@
 | Word 协同 | docx → 富文本协同编辑 → 自动回写 .docx |
 | 在线成员 | 实时显示当前连着谁，各自一条颜色 |
 | 邀请 | 自动列出本机所有局域网 IP，直接发给对方 |
-| 单文件分发 | 可打包成免装 Node 的 `LanSync.exe` |
+| 单文件分发 | [Releases](https://github.com/gaawal/LanSync/releases) 直接下载免装 Node 的 `LanSync.exe` |
 
 ## 快速开始
 
 ### 方式一：单文件 exe（Windows，推荐）
+
+**直接下载 → [LanSync.exe](https://github.com/gaawal/LanSync/releases/latest/download/LanSync.exe)**（约 83 MB，免安装）
+
+在 [Releases 页](https://github.com/gaawal/LanSync/releases) 还能拿到 `USAGE.txt`（使用说明）和 `LanSync.exe.sha256`（校验值，`certutil -hashfile LanSync.exe SHA256` 比对）。
 
 1. 双击 `LanSync.exe`，会自动打开浏览器；控制台窗口里会打印局域网地址：
 
